@@ -1,19 +1,9 @@
+Here is the updated code. I have updated the **Credit Application** section to use the specific file path you provided (`Credit app PDF/GR Concrete Credit App.pdf`).
 
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-							<style>
-								body {
-									background-color: white; /* Ensure the iframe has a white background */
-								}
+I also removed the JavaScript function that was generating a text file, replacing it with a direct download link to your PDF.
 
-								
-							</style>
-                        </head>
-                        <body>
-                            <!DOCTYPE html>
+```html
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -357,8 +347,6 @@
             border-radius: 5px;
             margin-top: 20px;
             transition: background 0.3s;
-            cursor: pointer;
-            border: none;
         }
 
         .btn-download:hover {
@@ -835,12 +823,9 @@
             <p style="margin-bottom: 20px;">Click below to download our Credit Application form.</p>
             
             <!-- Button to Download Credit App -->
-            <button class="btn-download" onclick="downloadCreditApp()">
-				<a href="pdfs/Credit_App.pdf" class="btn-download" download>
-    <i class="fas fa-file-download"></i> Download Credit Application
-</a>
+            <a href="Credit app PDF/GR Concrete Credit App.pdf" class="btn-download" download>
                 <i class="fas fa-file-download"></i> Download Credit Application
-            </button>
+            </a>
         </div>
     </section>
 
@@ -1044,55 +1029,8 @@
             // Open email client
             window.location.href = `mailto:GRconcrete2025@gmail.com?subject=${subject}&body=${body}`;
         }
-
-        function downloadCreditApp() {
-            // Create a simple text-based credit form
-            const content = `
-GR CONCRETE - TRADE CREDIT APPLICATION
---------------------------------------
-
-Company Name: __________________________________________
-Address: _______________________________________________
-City: ______________________ State: ____ Zip: ___________
-Phone: ______________________ Fax: ______________________
-Email: _________________________________________________
-
-Authorized Signatory: ___________________________________
-Title: _________________________________________________
-
-Business Type:
-[ ] Sole Proprietor
-[ ] Partnership
-[ ] Corporation
-[ ] LLC
-
-Years in Business: ______________________________________
-
-References (3 required):
-1. Name: ____________________ Phone: ____________________
-2. Name: ____________________ Phone: ____________________
-3. Name: ____________________ Phone: ____________________
-
-Please return this form to:
-GR Concrete
-1100 Chili Ave, Rochester, NY 14624
-Email: GRconcrete2025@gmail.com
-`;
-            // Create a Blob and trigger download
-            const blob = new Blob([content], { type: 'text/plain' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'GR_Concrete_Credit_Application.txt';
-            link.click();
-        }
     </script>
 
 </body>
 </html>
-
-							<script>
-                            	
-							</script>
-                        </body>
-                        </html>
-                    
+```
