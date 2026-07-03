@@ -1,19 +1,4 @@
-
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-bann8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-							<style>
-								body {
-									background-color: white; /* Ensure the iframe has a white background */
-								}
-
-								
-							</style>
-                        </head>
-                        <body>
-                            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -106,7 +91,7 @@
         /* --- HERO SECTION --- */
         .hero {
             /* Updated to use relative path */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Photos/IMG_20260630_115435.jpg'); 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/banner.webp'); 
             background-size: cover;
             background-position: center;
             height: 90vh;
@@ -191,7 +176,13 @@
         }
 
         /* --- PRIOR WORK --- */
-        /* Updated styling for text above image */
+        .work-grid {
+            display: grid;
+            /* Horizontal on PC: Create 3 equal columns */
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px;
+        }
+
         .work-item {
             width: 100%;
             background: white;
@@ -199,6 +190,7 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            height: 100%; /* Ensure equal height */
         }
 
         .work-item:hover {
@@ -290,16 +282,18 @@
         }
 
         .product-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            /* Horizontal on PC: Create 3 equal columns */
+            grid-template-columns: repeat(3, 1fr); 
             gap: 30px;
+            justify-items: center;
         }
 
         .product-card {
             background: var(--white);
             padding: 30px;
-            width: 300px;
+            width: 100%; /* Adjusted to fit grid column */
+            max-width: 350px; /* Prevent cards from getting too wide */
             text-align: center;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 8px;
@@ -320,12 +314,6 @@
             color: #777;
             font-weight: bold;
             border-radius: 4px;
-        }
-
-        .product-card i {
-            font-size: 3rem;
-            color: var(--dark-grey);
-            margin-bottom: 10px;
         }
 
         .product-card h3 {
@@ -645,6 +633,11 @@
             .map-wrapper {
                 min-height: 350px;
             }
+            
+            /* Switch to 2 columns on tablets/large phones */
+            .product-cards, .work-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -683,6 +676,11 @@
 
             .footer-content {
                 text-align: center;
+            }
+
+            /* Vertical on phones */
+            .product-cards, .work-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -746,19 +744,19 @@
             
             <!-- Item 1 -->
             <div class="work-item">
-                <img src="Photos/residential.jpg" alt="Residential Project">
+                <img src="images/residential.jpg" alt="Residential Project">
                 <div class="work-item-caption">Residential</div>
             </div>
 
             <!-- Item 2 -->
             <div class="work-item">
-                <img src="Photos/commercial.webp" alt="Commercial Project">
+                <img src="images/commercial.webp" alt="Commercial Project">
                 <div class="work-item-caption">Commercial</div>
             </div>
 
             <!-- Item 3 -->
             <div class="work-item">
-                <img src="Photos/agricultural.webp" alt="Agricultural Project">
+                <img src="images/commerical.webp" alt="Commercial Project">
                 <div class="work-item-caption">Commercial</div>
             </div>
 
@@ -822,7 +820,7 @@
             <!-- Product 1 -->
             <div class="product-card">
                 <div class="product-img-placeholder">
-                   <img src="IMG_20260701_162834.jpg"
+                    [Image: 1yd Block]
                 </div>
                 <h3>1 Cubic Yard Block</h3>
                 <p>Heavy-duty cement block with I-holes for lifting.</p>
@@ -832,7 +830,7 @@
             <!-- Product 2 -->
             <div class="product-card">
                 <div class="product-img-placeholder">
-                    <img src="IMG_20260702_152953.jpg"
+                    [Image: 0.5yd Block]
                 </div>
                 <h3>0.5 Cubic Yard Block</h3>
                 <p>Mid-size cement block with I-holes for lifting.</p>
@@ -842,7 +840,7 @@
             <!-- Product 3: Curbing -->
             <div class="product-card">
                 <div class="product-img-placeholder">
-                  <img src="IMG_20260702_153054.jpg"
+                    [Image: Curbing]
                 </div>
                 <h3>Concrete Curbing</h3>
                 <p>Pre-cast curbing with holes for staking.</p>
@@ -1071,10 +1069,4 @@
 
 </body>
 </html>
-
-							<script>
-                            	
-							</script>
-                        </body>
-                        </html>
-                    
+```
